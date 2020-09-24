@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="HR.jsf" id="d1" binding="#{backingBeanScope.backing_HR.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_HR.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_HR.f1}">
+            <af:pageTemplate viewId="/oracle/templates/tabletFirstTemplate.jspx" id="pt1"
+                             binding="#{backingBeanScope.backing_HR.pt1}">
+                <f:facet name="header"/>
+                <f:facet name="status"/>
+                <f:facet name="appNav"/>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:panelDashboard id="pd1" binding="#{backingBeanScope.backing_HR.pd1}" columns="2"
+                                       rowHeight="350px">
+                        <af:panelBox text="PanelBox1" id="pb1" binding="#{backingBeanScope.backing_HR.pb1}">
+                            <f:facet name="toolbar"/>
+                        </af:panelBox>
+                        <af:panelBox text="PanelBox2" id="pb2" binding="#{backingBeanScope.backing_HR.pb2}">
+                            <f:facet name="toolbar"/>
+                        </af:panelBox>
+                        <af:panelBox text="PanelBox3" id="pb3" binding="#{backingBeanScope.backing_HR.pb3}">
+                            <f:facet name="toolbar"/>
+                        </af:panelBox>
+                        <af:panelBox text="PanelBox4" id="pb4" binding="#{backingBeanScope.backing_HR.pb4}">
+                            <f:facet name="toolbar"/>
+                        </af:panelBox>
+                    </af:panelDashboard>
+                </f:facet>
+                <f:facet name="start">
+                    <af:listView value="#{bindings.DepartmentsView1.collectionModel}" var="item"
+                                 emptyText="#{bindings.DepartmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.DepartmentsView1.rangeSize}" id="lv1"
+                                 binding="#{backingBeanScope.backing_HR.lv1}"
+                                 selectionListener="#{bindings.DepartmentsView1.treeModel.makeCurrent}">
+                        <af:listItem id="li1" binding="#{backingBeanScope.backing_HR.li1}">
+                            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_HR.pgl1}">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1"
+                                            binding="#{backingBeanScope.backing_HR.gr1}">
+                                    <af:gridCell marginStart="5px" width="20%" id="gc1"
+                                                 binding="#{backingBeanScope.backing_HR.gc1}">
+                                        <af:outputFormatted value="#{item.bindings.DepartmentId.inputValue}" id="of1"
+                                                            binding="#{backingBeanScope.backing_HR.of1}">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DepartmentsView1.hints.DepartmentId.format}"/>
+                                        </af:outputFormatted>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="80%" marginEnd="5px" id="gc2"
+                                                 binding="#{backingBeanScope.backing_HR.gc2}">
+                                        <af:outputFormatted value="#{item.bindings.DepartmentName.inputValue}"
+                                                            id="of2" binding="#{backingBeanScope.backing_HR.of2}"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:listItem>
+                    </af:listView>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:attribute name="endWidth" value="0px"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_HR-->
+</f:view>

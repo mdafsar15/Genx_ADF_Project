@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="genx.model.AppModule">
+    <AppModuleConfig name="AppModuleLocal" jbo.project="genx.model.Model" ApplicationName="genx.model.AppModule"
+                     DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/GenxProjectDS"/>
+      <Security AppModuleJndiName="genx.model.AppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AppModuleShared" jbo.project="genx.model.Model" ApplicationName="genx.model.AppModule"
+                     DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/GenxProjectDS"/>
+      <Security AppModuleJndiName="genx.model.AppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>
