@@ -5,6 +5,9 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
+    <searchRegion Binds="EmployeesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeesView1Query"/>
   </executables>
   <bindings>
     <tree IterBinding="DepartmentsView1Iterator" id="DepartmentsView1">
@@ -12,6 +15,58 @@
         <AttrNames>
           <Item Value="DepartmentId"/>
           <Item Value="DepartmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
+      <nodeDefinition DefName="genx.model.EmployeesView" Name="EmployeesView10">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="HireDate">
+      <AttrNames>
+        <Item Value="HireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="JobId">
+      <AttrNames>
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="Salary">
+      <AttrNames>
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="genx.model.EmployeesView" Name="EmployeesView11">
+        <AttrNames>
+          <Item Value="Salary"/>
+          <Item Value="LastName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

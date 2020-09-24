@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
     <af:document title="HR.jsf" id="d1" binding="#{backingBeanScope.backing_HR.d1}">
         <af:messages id="m1" binding="#{backingBeanScope.backing_HR.m1}"/>
         <af:form id="f1" binding="#{backingBeanScope.backing_HR.f1}">
@@ -14,14 +15,119 @@
                 <f:facet name="center">
                     <af:panelDashboard id="pd1" binding="#{backingBeanScope.backing_HR.pd1}" columns="2"
                                        rowHeight="350px">
-                        <af:panelBox text="PanelBox1" id="pb1" binding="#{backingBeanScope.backing_HR.pb1}">
+                        <af:panelBox text="Employees" id="pb1" binding="#{backingBeanScope.backing_HR.pb1}">
                             <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.EmployeesView1.collectionModel}" var="row"
+                                      rows="#{bindings.EmployeesView1.rangeSize}"
+                                      emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.EmployeesView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.EmployeesView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.EmployeesView1.rangeSize}"
+                                      filterModel="#{bindings.EmployeesView1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.EmployeesView1Query.processQuery}" varStatus="vs"
+                                      id="t1" binding="#{backingBeanScope.backing_HR.t1}">
+                                <af:column sortProperty="#{bindings.EmployeesView1.hints.FirstName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmployeesView1.hints.FirstName.label}" id="c1">
+                                    <af:outputText value="#{row.FirstName}"
+                                                   shortDesc="#{bindings.EmployeesView1.hints.FirstName.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView1.hints.LastName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.EmployeesView1.hints.LastName.label}" id="c2">
+                                    <af:outputText value="#{row.LastName}"
+                                                   shortDesc="#{bindings.EmployeesView1.hints.LastName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.EmployeesView1.hints.Email.name}" filterable="true"
+                                           sortable="true" headerText="#{bindings.EmployeesView1.hints.Email.label}"
+                                           id="c3">
+                                    <af:outputText value="#{row.Email}"
+                                                   shortDesc="#{bindings.EmployeesView1.hints.Email.tooltip}" id="ot3"/>
+                                </af:column>
+                            </af:table>
                         </af:panelBox>
-                        <af:panelBox text="PanelBox2" id="pb2" binding="#{backingBeanScope.backing_HR.pb2}">
+                        <af:panelBox text="Details" id="pb2" binding="#{backingBeanScope.backing_HR.pb2}">
                             <f:facet name="toolbar"/>
+                            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_HR.pfl1}">
+                                <af:inputText value="#{bindings.FirstName.inputValue}"
+                                              label="#{bindings.FirstName.hints.label}"
+                                              required="#{bindings.FirstName.hints.mandatory}"
+                                              columns="#{bindings.FirstName.hints.displayWidth}"
+                                              maximumLength="#{bindings.FirstName.hints.precision}"
+                                              shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1"
+                                              binding="#{backingBeanScope.backing_HR.it1}">
+                                    <f:validator binding="#{bindings.FirstName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.LastName.inputValue}"
+                                              label="#{bindings.LastName.hints.label}"
+                                              required="#{bindings.LastName.hints.mandatory}"
+                                              columns="#{bindings.LastName.hints.displayWidth}"
+                                              maximumLength="#{bindings.LastName.hints.precision}"
+                                              shortDesc="#{bindings.LastName.hints.tooltip}" id="it2"
+                                              binding="#{backingBeanScope.backing_HR.it2}">
+                                    <f:validator binding="#{bindings.LastName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                              required="#{bindings.Email.hints.mandatory}"
+                                              columns="#{bindings.Email.hints.displayWidth}"
+                                              maximumLength="#{bindings.Email.hints.precision}"
+                                              shortDesc="#{bindings.Email.hints.tooltip}" id="it3"
+                                              binding="#{backingBeanScope.backing_HR.it3}">
+                                    <f:validator binding="#{bindings.Email.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                                              label="#{bindings.PhoneNumber.hints.label}"
+                                              required="#{bindings.PhoneNumber.hints.mandatory}"
+                                              columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                              maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                              shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it4"
+                                              binding="#{backingBeanScope.backing_HR.it4}">
+                                    <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.HireDate.inputValue}"
+                                              label="#{bindings.HireDate.hints.label}"
+                                              required="#{bindings.HireDate.hints.mandatory}"
+                                              columns="#{bindings.HireDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.HireDate.hints.tooltip}" id="id1"
+                                              binding="#{backingBeanScope.backing_HR.id1}">
+                                    <f:validator binding="#{bindings.HireDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.HireDate.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.hints.label}"
+                                              required="#{bindings.JobId.hints.mandatory}"
+                                              columns="#{bindings.JobId.hints.displayWidth}"
+                                              maximumLength="#{bindings.JobId.hints.precision}"
+                                              shortDesc="#{bindings.JobId.hints.tooltip}" id="it5"
+                                              binding="#{backingBeanScope.backing_HR.it5}">
+                                    <f:validator binding="#{bindings.JobId.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.Salary.inputValue}"
+                                              label="#{bindings.Salary.hints.label}"
+                                              required="#{bindings.Salary.hints.mandatory}"
+                                              columns="#{bindings.Salary.hints.displayWidth}"
+                                              maximumLength="#{bindings.Salary.hints.precision}"
+                                              shortDesc="#{bindings.Salary.hints.tooltip}" id="it6"
+                                              binding="#{backingBeanScope.backing_HR.it6}">
+                                    <f:validator binding="#{bindings.Salary.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Salary.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
                         </af:panelBox>
-                        <af:panelBox text="PanelBox3" id="pb3" binding="#{backingBeanScope.backing_HR.pb3}">
+                        <af:panelBox text="Salaries" id="pb3" binding="#{backingBeanScope.backing_HR.pb3}">
                             <f:facet name="toolbar"/>
+                            <dvt:barChart id="barChart1" var="row" value="#{bindings.EmployeesView11.collectionModel}"
+                                          binding="#{backingBeanScope.backing_HR.barChart1}">
+                                <dvt:chartLegend rendered="false" id="cl1"
+                                                 binding="#{backingBeanScope.backing_HR.cl1}"/>
+                                <f:facet name="dataStamp">
+                                    <dvt:chartDataItem id="di1" series="#{bindings.EmployeesView11.hints.Salary.label}"
+                                                       value="#{row.Salary}" group="#{row.LastName}"
+                                                       binding="#{backingBeanScope.backing_HR.di1}"/>
+                                </f:facet>
+                            </dvt:barChart>
                         </af:panelBox>
                         <af:panelBox text="PanelBox4" id="pb4" binding="#{backingBeanScope.backing_HR.pb4}">
                             <f:facet name="toolbar"/>

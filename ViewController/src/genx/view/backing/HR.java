@@ -1,14 +1,21 @@
 package genx.view.backing;
 
+import oracle.adf.view.faces.bi.component.chart.UIBarChart;
+import oracle.adf.view.faces.bi.component.chart.UIDataItem;
+import oracle.adf.view.faces.bi.component.chart.UILegend;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.data.RichListItem;
 import oracle.adf.view.rich.component.rich.data.RichListView;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.fragment.RichPageTemplate;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.component.rich.layout.RichGridCell;
 import oracle.adf.view.rich.component.rich.layout.RichGridRow;
 import oracle.adf.view.rich.component.rich.layout.RichPanelBox;
 import oracle.adf.view.rich.component.rich.layout.RichPanelDashboard;
+import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGridLayout;
 import oracle.adf.view.rich.component.rich.output.RichMessages;
 import oracle.adf.view.rich.component.rich.output.RichOutputFormatted;
@@ -31,6 +38,18 @@ public class HR {
     private RichPanelBox pb2;
     private RichPanelBox pb3;
     private RichPanelBox pb4;
+    private RichTable t1;
+    private RichPanelFormLayout pfl1;
+    private RichInputText it1;
+    private RichInputText it2;
+    private RichInputText it3;
+    private RichInputText it4;
+    private RichInputDate id1;
+    private RichInputText it5;
+    private RichInputText it6;
+    private UIBarChart barChart1;
+    private UILegend cl1;
+    private UIDataItem di1;
 
     public void setPt1(RichPageTemplate pt1) {
         this.pt1 = pt1;
@@ -166,5 +185,101 @@ public class HR {
 
     public RichPanelBox getPb4() {
         return pb4;
+    }
+
+    public void setT1(RichTable t1) {
+        this.t1 = t1;
+    }
+
+    public RichTable getT1() {
+        return t1;
+    }
+
+    public void setPfl1(RichPanelFormLayout pfl1) {
+        this.pfl1 = pfl1;
+    }
+
+    public RichPanelFormLayout getPfl1() {
+        return pfl1;
+    }
+
+    public void setIt1(RichInputText it1) {
+        this.it1 = it1;
+    }
+
+    public RichInputText getIt1() {
+        return it1;
+    }
+
+    public void setIt2(RichInputText it2) {
+        this.it2 = it2;
+    }
+
+    public RichInputText getIt2() {
+        return it2;
+    }
+
+    public void setIt3(RichInputText it3) {
+        this.it3 = it3;
+    }
+
+    public RichInputText getIt3() {
+        return it3;
+    }
+
+    public void setIt4(RichInputText it4) {
+        this.it4 = it4;
+    }
+
+    public RichInputText getIt4() {
+        return it4;
+    }
+
+    public void setId1(RichInputDate id1) {
+        this.id1 = id1;
+    }
+
+    public RichInputDate getId1() {
+        return id1;
+    }
+
+    public void setIt5(RichInputText it5) {
+        this.it5 = it5;
+    }
+
+    public RichInputText getIt5() {
+        return it5;
+    }
+
+    public void setIt6(RichInputText it6) {
+        this.it6 = it6;
+    }
+
+    public RichInputText getIt6() {
+        return it6;
+    }
+
+    public void setBarChart1(UIBarChart barChart1) {
+        this.barChart1 = barChart1;
+    }
+
+    public UIBarChart getBarChart1() {
+        return barChart1;
+    }
+
+    public void setCl1(UILegend cl1) {
+        this.cl1 = cl1;
+    }
+
+    public UILegend getCl1() {
+        return cl1;
+    }
+
+    public void setDi1(UIDataItem di1) {
+        this.di1 = di1;
+    }
+
+    public UIDataItem getDi1() {
+        return di1;
     }
 }
